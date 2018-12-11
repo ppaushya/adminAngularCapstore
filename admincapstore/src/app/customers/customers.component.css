@@ -1,0 +1,50 @@
+.button1 {
+    background-color:  rgb(14, 156, 167);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 8px 6px;
+    cursor: pointer;
+}
+#customer_list {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #m td, #customer_list th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customer_list tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customer_list tr:hover {background-color: #ddd;}
+  
+  #customer_list th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(14, 156, 167);
+    color: white;
+  }
+  
+  
+  .button5 {
+    
+    border-radius: 50%;
+    background-color: rgb(14, 156, 167);
+    border: none;
+    color: white;
+    padding: 25px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  

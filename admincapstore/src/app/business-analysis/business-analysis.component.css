@@ -1,0 +1,10 @@
+h3{
+    text-align: center;
+    font-style: italic;
+    color: navy;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}

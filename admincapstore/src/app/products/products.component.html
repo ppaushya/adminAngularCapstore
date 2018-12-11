@@ -1,0 +1,113 @@
+<!-- <style>
+    #inventory_list {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #m td, #inventory_list th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #inventory_list tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #inventory_list tr:hover {background-color: #ddd;}
+    
+    #inventory_list th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: center;
+      background-color: rgb(14, 156, 167);
+      color: white;
+    }
+    </style> -->
+
+
+<div class='filter'><h3>Search : <input type='text'
+  [(ngModel)]='listFilter' /> </h3>
+</div> 
+
+  <!-- <a href="#myModal2" role="button" class="btn btn-lg btn-default btn3d" data-toggle="modal">Add</a> -->
+    <div class="container" [@ml]="length">
+      <h3 style="text-align: center">INVENTORY</h3>
+    <table style="text-align: center" id="inventory_list">
+     
+      <tr>
+        <!-- <th>MERCHANT NAME</th> -->
+        <th>PRODUCT NAME</th>
+        <th>PRODUCT CATEGORY</th>
+        <th>PRODUCT PRICE</th>
+        <th>PRODUCT BRAND</th>
+        <th>PRODUCT DESCRIPTION</th>
+        <th>STATUS</th>
+        <th>PROMO</th>
+        <th>INVENTORY TYPE</th>
+        <th>INVENTORY QUANTITY</th>
+        <th colspan="3">OPERATIONS</th>
+        
+      </tr>
+      <tr *ngFor="let inventory of filteredInventories">
+        
+        <td>{{inventory.productName}}</td>
+        <td>{{inventory.productCategory}}</td>
+        <td>{{inventory.productPrice}}</td>
+        <td>{{inventory.productBrand}}</td>
+        <td>{{inventory.productDescription}}</td>
+        <td>{{inventory.status}}</td> 
+        <td>{{inventory.promo.promoCode}}</td>
+        <td>{{inventory.inventoryType}}</td>   
+        <td>{{inventory.inventoryQuantity}}</td>  
+        
+
+
+        <td><button (click)="deleteInventory(inventory.inventoryId)" class="button button1">Delete</button></td>  &nbsp; 
+        <td><a href="#myModal" role="button" class="button button1" data-toggle="modal" (click)="getInventoryObject(inventory)">Edit</a></td>
+      </tr>
+
+    </table>
+    </div>
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+              <h3 id="myModalLabel">Edit here!</h3>
+         </div>
+          <div class="modal-body">
+                  <form>
+                      <div class="form-group">
+                          <label for="productPrice">PRODUCT PRICE</label><br>
+                          <input type="text" name="productPrice" [(ngModel)]="inventory.productPrice"> 
+                      </div>
+
+                      <div class="form-group">
+                          <label for="inventoryQuantity">PRODUCT QUANTITY</label><br>
+                          <input type="text" name="inventoryQuantity" [(ngModel)]="inventory.inventoryQuantity"> 
+                      </div>
+
+                      <div class="form-group">
+                          <label for="productDescription">PRODUCT DESCRIPTION</label><br>
+                          <input type="text" name="productDescription" [(ngModel)]="inventory.productDescription"> 
+                      </div>
+
+                      <div class="form-group">
+                        <label for="sel1">Select Promo (select one):</label>
+                        <select class="form-control" name="sel1" [(ngModel)]="promo1">
+                          <option *ngFor="let promo of promos" value="{{promo.promoCode}}">{{promo.promoCode}}</option>
+                        </select>
+                      </div>
+        
+                </form>
+       </div>
+
+              <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button class="btn btn-primary" (click)="editInventory(inventory)">Submit</button>
+              </div>
+
+       </div>
+    </div>
+ </div>
+

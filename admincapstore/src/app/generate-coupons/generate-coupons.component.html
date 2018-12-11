@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Coupon Generation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div style="text-align:center"> <h2>Coupon Generation</h2></div>
+    <form>
+        <div id="couponform">
+          <table class="coupontable" >
+            
+            <tr>
+             
+              <td><input type="hidden" class="form-control" name="couponId" [(ngModel)]="coupon.couponId" ></td>
+            </tr>
+            <tr>
+              <th> Coupon Code:</th>
+              <td><input type="text" class="form-control" name="couponCode" [(ngModel)]="coupon.couponCode" placeholder="example: NEW300OFF" required></td>
+            </tr>&nbsp;&nbsp;
+            <tr>
+                <th> Maximum discount:</th>
+              <td><input type="text"  class="form-control" name="maxDiscount" [(ngModel)]="coupon.maxDiscount" placeholder="example: 500" required></td>
+            </tr>&nbsp;&nbsp;
+           
+            <tr>
+                <th> Discount percentage:</th>
+                <td><input type="text" class="form-control" name="discountPercentage" [(ngModel)]="coupon.discountPercentage" placeholder="example: 30" required></td>
+              </tr>&nbsp;&nbsp;
+            <tr>
+                <th> Expiry date :</th>
+              <td><input type="text" class="form-control" name="expiryDate" [(ngModel)]="coupon.expiryDate" placeholder="example: 26/06/2018" required></td>
+            </tr>
+           &nbsp;&nbsp;
+            <tr>
+              <td><button name="generateCoupon" type="submit" class="button button1" (click)="generateCoupon(coupon)">Generate Coupon</button></td>
+            </tr>
+          
+          </table>
+       </div>
+    </form>
+  
+  </div>
+</div>
+
+</body>
+</html>
