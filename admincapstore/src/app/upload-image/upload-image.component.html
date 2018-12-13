@@ -1,0 +1,69 @@
+<style>
+  #inventory_list {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #m td, #inventory_list th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #inventory_list tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #inventory_list tr:hover {background-color: #ddd;}
+  
+  #inventory_list th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(14, 156, 167);
+    color: white;
+  }
+  </style>
+
+
+<div class='filter'><h3>Search : <input type='text'
+[(ngModel)]='listFilter' /> </h3>
+</div> 
+<div><h5>Searched for: {{listFilter}}</h5></div>
+
+<!-- <a href="#myModal2" role="button" class="btn btn-lg btn-default btn3d" data-toggle="modal">Add</a> -->
+
+  <table id="inventory_list" align='center' border="1" cell-spacing="5px" cell-padding="10px">
+    <tr>
+     
+      <th>PRODUCT NAME</th>
+      <th>PRODUCT CATEGORY</th>
+      <th>PRODUCT PRICE</th>
+      <th>PRODUCT BRAND</th>
+      <th>UPLOAD IMAGE</th>
+      
+    </tr>
+    <tr *ngFor="let product of searchedProducts">
+      
+      <td >{{product.productName}}</td>
+      <td>{{product.productCategory}}</td>
+      <td>{{product.productPrice}}</td>
+      <td>{{product.brand}}</td>
+      <td>
+        <!-- <div *ngIf="currentFileUpload" class="progress">
+          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+            aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+            {{progress.percentage}}%</div>
+        </div> -->
+        
+        <label class="btn btn-default">
+          <input type="file" (change)="selectFile($event)">
+        </label>
+        
+        <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload(product.productId)">Upload</button>
+      </td>
+      
+
+     
+    </tr>
+
+  </table>
+
